@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Fake Windows 11 Update Screen for prank">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fake Windows 11 Update</title>
+  <link rel="stylesheet" href="./css/spinner.css">
+  <link rel="stylesheet" href="./css/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta property="og:site_name" content="Fake Windows 11 Update">
+  <meta property="og:title" content="Fake Windows 11 Update">
+  <meta property="og:description"
+    content="Fake Windows 11 Update Screen for prank">
+  <meta property="og:image" content="./favicon.ico">
+  <meta property="og:type" content="website">
+</head>
+<body>
+
+  <!-- Hidden setup screen used to gain required physical click permission -->
+  <div id="launcher">
+    <h1 class="text-4xl font-bold mb-4">Fake Windows 11 Update Screen for prank</h1><br>
+    <div class="text-left">
+    <label class="text-xl">
+        Start percentage (0-100):
+        <input type="number" id="startPercent" name="startPercent" min="0" max="99" class="text-black text-center rounded md:rounded-lg w-10" value="5"/>
+        %
+    </label><br><br>
+    <label class="text-xl">
+        <p>Duration of the update: <span id="sliderValue" class="text-white font-bold">50</span> minute(s)</p>
+        <input type="range" min="1" max="100" value="50" class="w-full" id="updateLength" />
+    </label>
+    <div class="h-6"></div>
+    <label class="text-lg">
+        <input type="checkbox" id="ESC_btn" name="ESC_btn" value="ESC" class="default:outline-2">
+        Block exiting full screen from just taping ESC
+    </label>
+    <p class="text-sm text-gray-400" id="txtESC" style="display: none;">To exit full screen, you must press and hold the ESC key.</p>
+    <br><label class="text-lg">
+        <input type="checkbox" id="mouse" name="mouse" value="mouse" class="default:outline-2">
+        Block mouse movement and clicks
+    </label><br>
+    <label class="text-lg">
+        <input type="checkbox" id="fbtns" name="fbtns" value="fbtns" class="default:outline-2" checked>
+        Block F5 & CTRL + R(refresh) and F11(full screen toggle)
+    </label>
+
+    </div><br>
+    <button id="start-btn" class="hover:scale-105 transition-all duration-700 ease-in-out">Start Fake Update</button>
+
+    <footer class="flex text-center text-gray-500 text-sm mt-4 justify-between items-center">
+        <p>Made by <a href="https://ferlaty.pages.dev/" target="_blank" class="text-blue-500 hover:underline" rel="noopener">Ferlaty</a>, 2026</p>
+        <p><a href="https://github.com/ferlaty/fake-windows-update" target="_blank" class="text-blue-500 hover:underline" rel="noopener">GitHub repo</a></p>
+  </footer>
+
+  </div>
+
+  <!-- Simulated Windows 11 Display -->
+  <div id="update-screen" class="noCursor">
+    <div class="spinner">
+        <span class="dot-1"></span>
+        <span class="dot-2"></span>
+        <span class="dot-3"></span>
+        <span class="dot-4"></span>
+        <span class="dot-5"></span>
+    </div>
+    <div class="main-text">
+      Working on updates <span id="percent">0%</span><br>
+      Please keep your computer on.
+    </div>
+    <div class="sub-text">
+      Your computer may restart a few times.
+    </div>
+  </div>
+
+  <script src="./js/index.js"></script>
+  <script src="./js/getSliderValue.js"></script>
+  <script src="./js/showTxt.js"></script>
+  <script src="./js/limitStartPercentage.js"></script> 
+</body>
+</html>
